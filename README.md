@@ -37,7 +37,7 @@ Para hospedar um site estático no Amazon S3, configure um bucket do Amazon S3 p
    - **ACLs habilitadas**: selecionado
    - **Bloquear todo o acesso público**: desabilitado
    - **Reconheço que as configurações atuais podem fazer com que este bucket e os objetos dentro dele se tornem públicos.**: selecionado
-   - **Versionamento de bucket**: Ativar<br><br>
+   - **Versionamento de bucket**: Ativar
 
 5. No final da tela clique em  **Criar bucket**
 
@@ -60,7 +60,7 @@ Para hospedar um site estático no Amazon S3, configure um bucket do Amazon S3 p
     - Em **Permissões**, selecione **Conceder acesso público de leitura**
     - Marque a opção **Compreendo o risco de conceder acesso público de leitura aos objetos especificados**
     - Clique em **Carregar**
-    - Clique em **Fechar**<br><br>
+    - Clique em **Fechar**
 
 12. Selecione o menu **Propriedades**.
 
