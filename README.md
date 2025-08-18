@@ -1,4 +1,4 @@
-# Armazenamento AWS S3 (Site estático) 
+# Página Web Estática com S3
 
 O objetivo desta atividade é explorar na prática os conceitos de armazenamento utilizando o serviço AWS Simple Storage Service (S3). 
 
@@ -22,35 +22,38 @@ Para hospedar um site estático no Amazon S3, configure um bucket do Amazon S3 p
 
 1. Faça login no AWS Console.
 
-2. Em **Serviços** selecione **S3**.
+   > **DICA !!!** O procedimento abaixo está no idioma Português. Caso por padrão sua página web da AWS não esteja no mesmo idioma, basta alterar através do ícone de engrenagem ⚙️ no topo da página.
+
+2. Na barra de pesquisa no topo da página, digite **S3** e depois selecione o serviço S3.
 
 3. Selecione **Criar bucket**.
 
-4. Na tela de criação de bucket preencha com as informações abaixo e no final da tela clique em  **Criar bucket**.
+4. Na tela de criação de bucket preencha apenas os campos abaixo (mantenha os demais com os valores padrão).
 
-   > **ATENÇÃO !!!** Substitua o texto **bucket-name** por um nome de Bucket qualquer. Mantenha as demais opções padrões. 
-
-   - **nome**: `bucket-name`
-   - **região**: Norte da Virgínia (us-east-1)
+   - **Região da AWS**: Leste dos EUA (Norte da Virgínia) us-east-1
+   - **Nome do bucket**: `bucket-name`
+      > **ATENÇÃO !!!** Substitua o texto **bucket-name** por um nome de Bucket qualquer. 
    - **ACLs habilitadas**: selecionado
    - **Bloquear todo o acesso público**: desabilitado
-   - **Reconheço que as configurações atuais podem fazer com que este bucket e os objetos dentro dele se tornem públicos:** selecionado
-   - **Versionamento de Bucket**: Ativar<br><br>
+   - **Reconheço que as configurações atuais podem fazer com que este bucket e os objetos dentro dele se tornem públicos.**: selecionado
+   - **Versionamento de bucket**: Ativar<br><br>
 
-5. Clique sobre o nome do bucket criado.
+5. No final da tela clique em  **Criar bucket**
 
-6. No menu **Permissões** navegue até **Lista de controle de acesso (ACL)** e clique em **Editar**.
+6. Clique sobre o nome do bucket criado.
 
-7. Selecione as opções **Listar** e **Leitura** para o beneficiário **Todos (acesso público)**.
+7. No menu **Permissões** navegue até **Lista de controle de acesso (ACL)** e clique em **Editar**.
 
-8. Marque a opção **Compreendo os efeitos dessas alterações em meus objetos e buckets** e clique em **Salvar alterações**. 
+8. Para o beneficiário **Todos (acesso público)**, selecione as opções **Listar** e **Leitura**.
 
-9. Faça download para sua máquina dos arquivos [index.html](https://github.com/kledsonhugo/aws-s3/blob/main/app/index.html) e [error.html](https://github.com/kledsonhugo/aws-s3/blob/main/app/error.html).
+9. Marque a opção **Compreendo os efeitos dessas alterações em meus objetos e buckets.** e clique em **Salvar alterações**. 
 
-   > **ATENÇÃO !!!** Ao clicar no link aparecerá uma tela com diversas opções. Entre as opções terá o ícone para fazer download do arquivo para sua máquina.
+10. Faça download dos arquivos [index.html](https://github.com/kledsonhugo/aws-s3/blob/main/app/index.html) e [error.html](https://github.com/kledsonhugo/aws-s3/blob/main/app/error.html).
+    > **DICA !!!** O ícone de download ⬇️ pode ser usado para fazer download do arquivo.
  
-10. No menu **Objetos** clique em **Carregar**.
+11. Selecione o menu **Objetos**.
 
+    - Clique em **Carregar**
     - Selecione **Adicionar arquivos**
     - Busque pelos arquivos `index.html` e `error.html` baixados anteriormente e os selecione
     - Em **Permissões**, selecione **Conceder acesso público de leitura**
@@ -58,15 +61,16 @@ Para hospedar um site estático no Amazon S3, configure um bucket do Amazon S3 p
     - Clique em **Carregar**
     - Clique em **Fechar**<br><br>
 
-11. No menu **Propriedades** navegue até **Hospedagem de Site estático** e clique em **Editar**.
+12. Selecione o menu **Propriedades**.
 
-12. Preencha com as informações abaixo e clique em **Salvar alterações**.
-
+    - Navegue até **Hospedagem de Site estático**
+    - Clique em **Editar**
     - Hospedagem de site estático: `Ativar`
     - Documento de índice: `index.html`
-    - Documento de erro opcional: `error.html`<br><br>
+    - Documento de erro - opcional: `error.html`
+    - Clique em **Salvar alterações**<br><br>
 
-13. No menu **Propriedades** navegue até **Hospedagem de Site estático** e clique na url **Endpoint de site de bucket**.
+14. No menu **Propriedades** navegue até **Hospedagem de Site estático** e clique na url **Endpoint de site de bucket**.
 
 <br>
 
