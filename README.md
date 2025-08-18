@@ -18,7 +18,7 @@ Para hospedar um site estático no Amazon S3, configure um bucket do Amazon S3 p
 
 <br>
 
-## Passo a passo
+## Passo-a-passo
 
 1. Faça login no AWS Console.
 
