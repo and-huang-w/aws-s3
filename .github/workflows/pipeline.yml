@@ -6,7 +6,7 @@ on:
     - main
 
 env:
-  TERRAFORM_VERSION: 1.13.0
+  TERRAFORM_VERSION: 1.12.2
 
 jobs:
 
@@ -20,6 +20,9 @@ jobs:
       uses: hashicorp/setup-terraform@v3
       with:
         terraform_version: $TERRAFORM_VERSION
+
+    - name: Step 01.1 - Terraform version
+      run : terraform --version
 
     - name: Step 02 - CheckOut GitHub Repo
       uses: actions/checkout@v4
