@@ -43,6 +43,7 @@ jobs:
     - name: Step 07 - Checkov
       uses: bridgecrewio/checkov-action@master
       with:
+        directory: terraform/
         output_format: cli
         output_file_path: console
         skip_check: CKV_AWS_54,CKV_AWS_55,CKV_AWS_56,CKV_AWS_53,CKV_AWS_18,CKV2_AWS_61,CKV2_AWS_62,CKV_AWS_20,CKV_AWS_144,CKV2_AWS_6,CKV_AWS_145,CKV2_AWS_65
