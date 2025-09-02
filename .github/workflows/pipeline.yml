@@ -40,6 +40,9 @@ jobs:
     - name: Step 06 - Terraform Format Check
       run: terraform -chdir=./terraform fmt -check
 
+    - name: Step 07 - Checkov
+      uses: bridgecrewio/checkov-action@v12
+
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
