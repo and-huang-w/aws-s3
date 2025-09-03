@@ -1,7 +1,7 @@
 run "setup_tests" {
-    module {
-        source = "./tests/setup"
-    }
+  module {
+    source = "./tests/setup"
+  }
 }
 
 run "create_bucket" {
