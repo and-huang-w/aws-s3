@@ -40,19 +40,19 @@ jobs:
     - name: Step 06 - Terraform Format Check
       run: terraform -chdir=./terraform fmt -check -diff -recursive
 
-    - name: Step 07 - Terraform Test
-      run: terraform -chdir=./terraform test
+    - name: Step 07 - Terraform Plan
+      run: terraform -chdir=./terraform plan -out=tfplan
 
-    - name: Step 08 - Checkov
+    - name: Step 08 - Terraform Test
+      run: terraform -chdir=./terraform test -verbose
+
+    - name: Step 09 - Checkov
       uses: bridgecrewio/checkov-action@master
       with:
         framework: terraform
         output_format: cli
         output_file_path: console
         soft_fail: true
-
-    - name: Step 09 - Terraform Plan
-      run: terraform -chdir=./terraform plan -out=tfplan
   
   deploy:
     name: Deploy
