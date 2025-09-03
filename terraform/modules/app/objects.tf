@@ -1,7 +1,4 @@
 resource "aws_s3_object" "bucket-objects" {
-#   depends_on = [
-#     aws_s3_bucket_acl.bucket-acl,
-#   ]
   bucket       = var.bucket_id
   for_each     = fileset("./modules/app/objects/", "*")
   key          = each.value

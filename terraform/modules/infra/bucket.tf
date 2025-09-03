@@ -17,23 +17,6 @@ resource "aws_s3_bucket_public_access_block" "bucket-public-access" {
   restrict_public_buckets = false
 }
 
-resource "aws_s3_bucket_versioning" "bucket-versioning" {
-  bucket = aws_s3_bucket.bucket.id
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
-
-resource "aws_s3_bucket_website_configuration" "bucket-website-configuration" {
-  bucket = aws_s3_bucket.bucket.id
-  index_document {
-    suffix = "index.html"
-  }
-  error_document {
-    key = "error.html"
-  }
-}
-
 resource "aws_s3_bucket_policy" "bucket-policy" {
   depends_on = [
     aws_s3_bucket_ownership_controls.bucket-ownership,
@@ -53,4 +36,21 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
       }
     ]
   })
+}
+
+resource "aws_s3_bucket_versioning" "bucket-versioning" {
+  bucket = aws_s3_bucket.bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_website_configuration" "bucket-website-configuration" {
+  bucket = aws_s3_bucket.bucket.id
+  index_document {
+    suffix = "index.html"
+  }
+  error_document {
+    key = "error.html"
+  }
 }
