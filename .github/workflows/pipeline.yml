@@ -38,7 +38,7 @@ jobs:
       run: terraform -chdir=./terraform validate
 
     - name: Step 06 - Terraform Format Check
-      run: terraform -chdir=./terraform fmt -check
+      run: terraform -chdir=./terraform fmt -check -diff -recursive
 
     - name: Step 07 - Terraform Test
       run: terraform -chdir=./terraform test
