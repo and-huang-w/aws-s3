@@ -51,6 +51,9 @@ jobs:
         output_file_path: console
         soft_fail: true
 
+    - name: Step 09 - Terraform Plan
+      run: terraform -chdir=./terraform plan -out=tfplan
+  
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
