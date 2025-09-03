@@ -42,16 +42,3 @@ resource "aws_s3_bucket_website_configuration" "bucket-website-configuration" {
     key = "error.html"
   }
 }
-
-resource "aws_s3_object" "bucket-objects" {
-  depends_on = [
-    aws_s3_bucket_acl.bucket-acl,
-  ]
-  bucket       = aws_s3_bucket.bucket.id
-  for_each     = fileset("../app/", "*")
-  key          = each.value
-  source       = "../app/${each.value}"
-  acl          = "public-read"
-  content_type = "text/html"
-  etag         = md5(file("../app/${each.value}"))
-}
