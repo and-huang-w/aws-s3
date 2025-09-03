@@ -1,6 +1,6 @@
 run "setup_tests" {
     module {
-        source = "./terraform/tests/setup"
+        source = "./tests/setup"
     }
 }
 

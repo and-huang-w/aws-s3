@@ -40,10 +40,12 @@ jobs:
     - name: Step 06 - Terraform Format Check
       run: terraform -chdir=./terraform fmt -check
 
-    - name: Step 07 - Checkov
+    - name: Step 07 - Terraform Test
+      run: terraform -chdir=./terraform test
+
+    - name: Step 08 - Checkov
       uses: bridgecrewio/checkov-action@master
       with:
-        # directory: terraform/
         framework: terraform
         output_format: cli
         output_file_path: console
