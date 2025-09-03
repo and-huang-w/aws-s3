@@ -23,7 +23,6 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
     aws_s3_bucket_public_access_block.bucket-public-access,
   ]
   bucket = aws_s3_bucket.bucket.id
-  
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
