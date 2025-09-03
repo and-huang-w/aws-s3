@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "bucket" {
 resource "aws_s3_bucket_ownership_controls" "bucket-ownership" {
   bucket = aws_s3_bucket.bucket.id
   rule {
-    object_ownership = "BucketOwnerPreferred"
+    object_ownership = "BucketOwnerEnforced"
   }
 }
 
@@ -41,4 +41,21 @@ resource "aws_s3_bucket_website_configuration" "bucket-website-configuration" {
   error_document {
     key = "error.html"
   }
+}
+
+resource "aws_s3_bucket_policy" "bucket-policy" {
+  bucket = aws_s3_bucket.bucket.id
+  
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid       = "PublicReadGetObject"
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:GetObject"
+        Resource  = "${aws_s3_bucket.bucket.arn}/*"
+      }
+    ]
+  })
 }

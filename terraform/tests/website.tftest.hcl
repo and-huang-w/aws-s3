@@ -32,8 +32,13 @@ run "create_bucket" {
   }
 
   assert {
-    condition     = aws_s3_bucket_acl.bucket-acl.acl == "public-read"
-    error_message = "Bucket ACL should be public-read"
+    condition     = aws_s3_bucket_ownership_controls.bucket-ownership.rule[0].object_ownership == "BucketOwnerEnforced"
+    error_message = "Bucket ownership should be BucketOwnerEnforced"
+  }
+
+  assert {
+    condition     = can(aws_s3_bucket_policy.bucket-policy.policy)
+    error_message = "Bucket policy should be defined"
   }
 
   assert {
