@@ -13,21 +13,21 @@ run "create_bucket" {
 
   assert {
     condition     = module.infra.bucket_name == "${run.setup_tests.bucket_prefix}-aws-s3-website-test"
-    error_message = "Invalid bucket name"
+    error_message = "Nome de bucket inválido"
   }
 
   assert {
     condition     = module.infra.bucket_website_domain != ""
-    error_message = "Website domain should be configured"
+    error_message = "O domínio do site deve ser configurado"
   }
 
   assert {
     condition     = contains(keys(module.app.object_etags), "index.html")
-    error_message = "index.html object should exist"
+    error_message = "O objeto index.html deve existir"
   }
 
   assert {
     condition     = contains(keys(module.app.object_etags), "error.html")
-    error_message = "error.html object should exist"
+    error_message = "O objeto error.html deve existir"
   }
 }
