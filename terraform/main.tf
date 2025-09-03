@@ -4,6 +4,6 @@ module "infra" {
 }
 
 module "app" {
-  source      = "./modules/app"
-  bucket_name = module.infra.bucket_id
+  source    = "./modules/app"
+  bucket_id = module.infra.bucket_id
 }
